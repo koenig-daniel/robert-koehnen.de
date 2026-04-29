@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(*)",
+      "Edit(c:\\dev\\robert-koehnen.de\\**)",
+      "Write(c:\\dev\\robert-koehnen.de\\**)",
+      "Read(c:\\Users\\danie\\.claude\\**)",
+      "WebFetch(domain:github.com)"
+    ]
+  }
+}
