@@ -1,0 +1,339 @@
+/* ── Particles ── */
+#particles {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* ── Reset & Base ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:         #0e0f13;
+  --bg-alt:     #13141a;
+  --surface:    #1a1c24;
+  --gold:       #c9a96e;
+  --gold-dim:   #8a6e43;
+  --text:       #ddd8d0;
+  --text-muted: #7a7670;
+  --serif:      'Playfair Display', Georgia, serif;
+  --sans:       'Source Sans 3', system-ui, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+a { color: var(--gold); text-decoration: none; }
+a:hover { color: var(--text); }
+
+img { display: block; max-width: 100%; }
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ── Nav ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2.5rem;
+  background: rgba(14, 15, 19, 0.9);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(201, 169, 110, 0.1);
+}
+
+.nav-name {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  color: var(--gold);
+  letter-spacing: 0.02em;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+nav ul a {
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+nav ul a:hover { color: var(--gold); }
+
+/* ── Hero ── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 6rem 2rem 4rem;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 40%, rgba(201,169,110,0.05) 0%, transparent 70%),
+    var(--bg);
+  position: relative;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 120px;
+  background: linear-gradient(to bottom, transparent, var(--bg));
+}
+
+.hero-inner { max-width: 700px; }
+
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: var(--text);
+  margin-bottom: 2rem;
+}
+
+.tagline {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(1.1rem, 2.5vw, 1.45rem);
+  color: var(--gold);
+  line-height: 1.6;
+}
+
+/* ── Autor ── */
+.autor {
+  padding: 7rem 0;
+  background: var(--bg-alt);
+}
+
+.autor-grid {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+.autor-foto img {
+  width: 100%;
+  border-radius: 2px;
+  filter: grayscale(20%);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+}
+
+.autor-text h2 {
+  font-family: var(--serif);
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: var(--gold);
+  margin-bottom: 1.75rem;
+}
+
+.autor-text p { margin-bottom: 1.1rem; }
+.autor-text p:last-of-type { margin-bottom: 0; }
+
+.autor-meta {
+  margin-top: 2rem !important;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  letter-spacing: 0.03em;
+}
+
+/* ── Serien ── */
+.serie {
+  padding: 7rem 0;
+  background: var(--bg);
+}
+
+.serie-alt {
+  background: var(--bg-alt);
+}
+
+.serie-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.serie-header h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+.serie-beschreibung {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ── Bücher-Grid ── */
+.buecher-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2.5rem;
+}
+
+.buecher-grid--zwei {
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.buch {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 2px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.buch:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+}
+
+.buch-cover-link {
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 2/3;
+  background: #0a0b0e;
+}
+
+.buch-cover-link img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s;
+}
+
+.buch:hover .buch-cover-link img {
+  transform: scale(1.03);
+}
+
+.buch-info {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.buch-band {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin-bottom: 0.4rem;
+}
+
+.buch-info h3 {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 0.8rem;
+  line-height: 1.3;
+}
+
+.buch-info p {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  flex: 1;
+  margin-bottom: 1.25rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.55rem 1.2rem;
+  border: 1px solid var(--gold-dim);
+  color: var(--gold);
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: background 0.2s, color 0.2s;
+  align-self: flex-start;
+}
+
+.btn:hover {
+  background: var(--gold);
+  color: var(--bg);
+}
+
+/* ── Footer ── */
+footer {
+  padding: 3rem 0;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  background: var(--bg);
+  text-align: center;
+}
+
+footer p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+footer a { color: var(--text-muted); }
+footer a:hover { color: var(--gold); }
+
+.footer-amazon a {
+  color: var(--gold-dim);
+  font-size: 0.9rem;
+}
+
+.footer-amazon a:hover { color: var(--gold); }
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  nav ul { display: none; }
+
+  .autor-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .autor-foto img {
+    max-width: 220px;
+    margin: 0 auto;
+  }
+
+  .buecher-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .buecher-grid--zwei {
+    grid-template-columns: 1fr;
+  }
+}
