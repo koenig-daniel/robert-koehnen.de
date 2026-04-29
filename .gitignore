@@ -1,0 +1,19 @@
+# Node / Build
+node_modules/
+dist/
+.next/
+out/
+
+# Env / Secrets
+.env
+.env.local
+.env*.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+*.suo
+*.user
