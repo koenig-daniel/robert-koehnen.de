@@ -22,7 +22,9 @@ Website für Robert Köhnen, Fantasy-Autor (Bruder des Nutzers).
 - `bio.md` — Autoren-Bio (Quelle für Website-Text)
 - `robert_koehnen.jpg` — Autorenfoto
 - `covers/` — 12 Buchcover-Bilder (JPG)
-- `impressum.html` — noch nicht erstellt (im Footer verlinkt)
+- `fonts/` — Lokale WOFF2-Dateien (Playfair Display, Source Sans 3) — DSGVO-konform, kein Google CDN
+- `fonts.css` — @font-face-Deklarationen für lokale Fonts
+- `impressum.html` — Impressum nach § 5 TMG (Name, Adresse Erkrath, E-Mail)
 
 ## Bücher
 
@@ -41,12 +43,13 @@ Amazon-Autorenseite: https://www.amazon.de/stores/Robert-K%C3%B6hnen/author/B0DG
 - **Dark Fantasy Ästhetik** — Hintergrund `#0e0f13`, Goldakzente `#c9a96e`, Partikel-Animation
 - **Schriften** — Playfair Display (Überschriften, Italic), Source Sans 3 (Fließtext, 300)
 - **Buchkarten** — Cover oben (aspect-ratio 2/3), Info unten, Button "Bei Amazon"
-- **Keine externen Abhängigkeiten** — kein Framework, kein Build-Tool, plain HTML/CSS/JS
+- **Keine externen Abhängigkeiten** — kein Framework, kein Build-Tool, plain HTML/CSS/JS, Fonts lokal
+- **Hosting** — GitHub Pages (Repo: koenig-daniel/robert-koehnen.de, öffentlich), Custom Domain robert-koehnen.de, HTTPS via Let's Encrypt
 
 ## Wichtige Regeln
 
 - Kein Build-Schritt — direkt editierbare Dateien, kein npm, kein Bundler
-- `impressum.html` fehlt noch — im Footer verlinkt, muss noch erstellt werden
+- Fonts NIE wieder auf Google CDN umstellen — `fonts.css` + `fonts/` sind die einzige Quelle
 - Cover-Dateinamen exakt beachten (Leerzeichen in einem Dateinamen: `Fluestern_im_Zwielicht_1_Der Meister_der_Flammen.jpg`)
 
 ## Einrichtung (neuer Rechner)
